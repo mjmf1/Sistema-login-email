@@ -42,7 +42,7 @@ export default function LoginPage() {
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
       >
-        <h1 className="text-2xl font-bold mb-6 text-gray-900">Iniciar Sesión</h1>
+  <h1 className="text-3xl font-extrabold mb-6 text-black">Iniciar Sesión</h1>
 
         {error && <p className="text-red-500 mb-4">{error}</p>}
 
