@@ -32,14 +32,14 @@ cd Sistema-login-email
 npm install
 ```
 
-3. Copia el ejemplo de variables de entorno y edítalo:
+3. Copia el ejemplo de variables de entorno y edítalo (flujo recomendado)
 
 ```bash
 cp .env.example .env.local
-# editar .env.local con tus credenciales
+# luego edita .env.local con tu editor (no lo subas al repo)
 ```
 
-Variables mínimas a configurar en `.env.local`:
+Variables mínimas a configurar en `.env.local` (ejemplo):
 
 ```env
 ADMIN_EMAIL=admin@example.com
@@ -53,7 +53,11 @@ SMTP_FROM=tu_email@gmail.com
 NODE_ENV=development
 ```
 
-> Nota: No subas `.env.local` a GitHub. Usa contraseñas de aplicación para Gmail si corresponde.
+Notas importantes:
+
+- Mantén `.env.local` fuera del control de versiones. El repositorio incluye `.env.example` como plantilla para el entrevistador y para facilitar la configuración local.
+- Si cambias variables en `.env.local`, reinicia el servidor de desarrollo para que se recarguen las variables de entorno.
+- No subas secretos reales al repositorio. Usa valores de ejemplo o variables en el entorno de despliegue.
 
 ---
 
