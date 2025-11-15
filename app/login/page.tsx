@@ -15,6 +15,12 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
 
+    // Timeout de seguridad: resetear loading después de 10 segundos
+    const timeoutId = setTimeout(() => {
+      console.warn('Timeout: resetear loading por seguridad');
+      setLoading(false);
+    }, 10000);
+
     try {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
@@ -22,6 +28,7 @@ export default function LoginPage() {
         body: JSON.stringify({ email, password }),
       });
 
+      clearTimeout(timeoutId);
       const data = await response.json();
       console.log('Response status:', response.status, 'Data:', data);
 
@@ -35,6 +42,7 @@ export default function LoginPage() {
         setLoading(false);
       }
     } catch (error) {
+      clearTimeout(timeoutId);
       console.error('Error en /api/auth/login (fetch):', error);
       setError('Error de conexión. Intenta nuevamente.');
       setLoading(false);
