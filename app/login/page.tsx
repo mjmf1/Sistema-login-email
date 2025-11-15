@@ -22,10 +22,13 @@ export default function LoginPage() {
     }, 10000);
 
     try {
+      // Normalizar email: quitar espacios alrededor y pasar a minúsculas
+      const normalizedEmail = email.trim().toLowerCase();
+
       const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: normalizedEmail, password }),
       });
 
       clearTimeout(timeoutId);
