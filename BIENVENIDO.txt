@@ -55,7 +55,6 @@ Este proyecto cumple con TODOS los requisitos solicitados:
 3. RESUMEN.md          - Resumen ejecutivo
 4. .env.example        - Variables de entorno necesarias
 5. setup.sh            - Script de configuración automática
-6. BIENVENIDA.txt      - Este archivo de bienvenida
 
 ═══════════════════════════════════════════════════════════════
 
