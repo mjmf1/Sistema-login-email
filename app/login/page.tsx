@@ -23,12 +23,13 @@ export default function LoginPage() {
       });
 
       const data = await response.json();
+      console.log('Response status:', response.status, 'Data:', data);
 
       if (response.ok && data.token) {
-        // Login exitoso - redirigir a dashboard
+        console.log('Login exitoso, redirigiendo...');
         router.push('/dashboard');
       } else {
-        // Login fallido - mostrar error y resetear loading
+        console.log('Login fallido, mostrando error...');
         const errorMessage = data.message || 'Error al iniciar sesión';
         setError(errorMessage);
         setLoading(false);
