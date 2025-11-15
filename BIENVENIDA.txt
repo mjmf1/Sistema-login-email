@@ -26,7 +26,7 @@ Este proyecto cumple con TODOS los requisitos solicitados:
    - Comandos: npm run dev, build, start
 
 ✅ REPOSITORIO PÚBLICO EN GITHUB
-   - URL: https://github.com/marlon-mora/sistema-login-email
+   - URL: https://github.com/mjmf1/Sistema-login-email
    - Visibilidad: Pública
    - Credenciales sensibles excluidas de Git
 
@@ -51,13 +51,11 @@ Este proyecto cumple con TODOS los requisitos solicitados:
 📚 DOCUMENTACIÓN DISPONIBLE:
 
 1. README.md           - Guía principal y configuración
-2. VERIFICACION.md     - Checklist de requisitos
-3. FLUJO.md            - Diagramas de flujo de la aplicación
-4. COMPARTIR.md        - Instrucciones para colaboradores
-5. RESUMEN.md          - Resumen ejecutivo
-6. INDICE.md           - Índice completo de documentación
-7. .env.example        - Variables de entorno necesarias
-8. setup.sh            - Script de configuración automática
+2. FLUJO.md            - Diagramas de flujo de la aplicación
+3. RESUMEN.md          - Resumen ejecutivo
+4. .env.example        - Variables de entorno necesarias
+5. setup.sh            - Script de configuración automática
+6. BIENVENIDA.txt      - Este archivo de bienvenida
 
 ═══════════════════════════════════════════════════════════════
 
@@ -107,7 +105,6 @@ npm run dev
 
 Consulta:
 1. README.md - Sección "Troubleshooting"
-2. INDICE.md - Búsqueda rápida por tema
 3. FLUJO.md - Para entender la arquitectura
 4. Logs en la terminal durante ejecución
 

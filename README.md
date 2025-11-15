@@ -22,6 +22,7 @@ Este README contiene todo lo necesario para configurar y ejecutar el proyecto en
 
 ```bash
 git clone https://github.com/mjmf1/Sistema-login-email.git
+
 cd Sistema-login-email
 ```
 
@@ -115,7 +116,5 @@ middleware.ts     # protección de rutas
 - Si fallan envíos SMTP: revisa `SMTP_USER`, `SMTP_PASSWORD`, y prueba con credenciales válidas.
 
 ---
-
-Si necesitas que adapte este README (por ejemplo, instrucciones para Docker, CI o despliegue en Vercel), dímelo y lo añado.
 
 Última actualización: Noviembre 2025
