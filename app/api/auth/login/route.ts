@@ -38,7 +38,8 @@ export async function POST(request: NextRequest) {
       { success: false, message: 'Credenciales inválidas' },
       { status: 401 }
     );
-  } catch (error) {
+  } catch (err) {
+    console.error('Error en /api/auth/login:', err);
     return NextResponse.json(
       { success: false, message: 'Error en el servidor' },
       { status: 500 }

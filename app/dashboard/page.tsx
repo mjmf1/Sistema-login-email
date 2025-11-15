@@ -23,7 +23,8 @@ export default function DashboardPage() {
         if (!response.ok) {
           router.push('/login');
         }
-      } catch (err) {
+      } catch (error) {
+        console.error('Error verificando token:', error);
         router.push('/login');
       }
     };
@@ -76,7 +77,8 @@ export default function DashboardPage() {
       } else {
         setError(data.message || 'Error al enviar el email');
       }
-    } catch (err) {
+    } catch (error) {
+      console.error('Error al enviar fetch /api/email/send:', error);
       setError('Error de conexión');
     } finally {
       setLoading(false);
@@ -94,8 +96,8 @@ export default function DashboardPage() {
         // Limpiar estado y redirigir
         router.push('/login');
       }
-    } catch (err) {
-      console.error('Error al cerrar sesión:', err);
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
       // Si hay error, igual redirigir
       router.push('/login');
     }
@@ -212,7 +214,7 @@ export default function DashboardPage() {
                 <li>Ingresa el email del destinatario</li>
                 <li>Escribe el asunto del mensaje</li>
                 <li>Redacta el contenido del email</li>
-                <li>Haz clic en "Enviar Email"</li>
+                <li>Haz clic en &quot;Enviar Email&quot;</li>
               </ul>
             </div>
           </div>

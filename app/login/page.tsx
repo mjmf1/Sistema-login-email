@@ -29,7 +29,8 @@ export default function LoginPage() {
       } else {
         setError(data.error || 'Error al iniciar sesión');
       }
-    } catch (err) {
+    } catch (error) {
+      console.error('Error en /api/auth/login (fetch):', error);
       setError('Error de conexión');
     } finally {
       setLoading(false);

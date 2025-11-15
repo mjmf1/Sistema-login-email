@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     const response = NextResponse.json(
       { success: true, message: 'Sesión cerrada' },
@@ -17,7 +17,8 @@ export async function POST(request: NextRequest) {
     });
 
     return response;
-  } catch (error) {
+  } catch (err) {
+    console.error('Error en /api/auth/logout:', err);
     return NextResponse.json(
       { success: false, message: 'Error al cerrar sesión' },
       { status: 500 }
