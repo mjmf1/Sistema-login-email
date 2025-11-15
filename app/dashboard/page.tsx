@@ -6,7 +6,9 @@ import { useRouter } from 'next/navigation';
 export default function DashboardPage() {
   const [to, setTo] = useState('');
   const [subject, setSubject] = useState('');
+  const [subjectRemaining, setSubjectRemaining] = useState(120);
   const [message, setMessage] = useState('');
+  const [messageRemaining, setMessageRemaining] = useState(2000);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
@@ -35,6 +37,27 @@ export default function DashboardPage() {
     setError('');
     setSuccess('');
     setLoading(true);
+
+    // Client-side length validation
+    const SUBJECT_MAX = 120;
+    const MESSAGE_MAX = 2000;
+    if (subject.trim().length === 0 || message.trim().length === 0) {
+      setError('Asunto y mensaje no pueden estar vacíos');
+      setLoading(false);
+      return;
+    }
+
+    if (subject.length > SUBJECT_MAX) {
+      setError(`El asunto no debe exceder ${SUBJECT_MAX} caracteres`);
+      setLoading(false);
+      return;
+    }
+
+    if (message.length > MESSAGE_MAX) {
+      setError(`El mensaje no debe exceder ${MESSAGE_MAX} caracteres`);
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch('/api/email/send', {
@@ -150,11 +173,13 @@ export default function DashboardPage() {
                 <input
                   type="text"
                   value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
+                  onChange={(e) => { setSubject(e.target.value); setSubjectRemaining(120 - e.target.value.length); }}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 font-medium"
                   placeholder="Asunto del email"
+                  maxLength={120}
                   required
                 />
+                <p className="text-sm text-gray-500 mt-1">{subjectRemaining} caracteres restantes</p>
               </div>
 
               <div className="mb-6">
@@ -163,11 +188,13 @@ export default function DashboardPage() {
                 </label>
                 <textarea
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) => { setMessage(e.target.value); setMessageRemaining(2000 - e.target.value.length); }}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent h-32 resize-none text-gray-900 placeholder-gray-400 font-medium"
                   placeholder="Escribe tu mensaje aquí..."
+                  maxLength={2000}
                   required
                 />
+                <p className="text-sm text-gray-500 mt-1">{messageRemaining} caracteres restantes</p>
               </div>
 
               <button

@@ -25,6 +25,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Longitud coherente: asunto corto, mensaje más largo
+    const SUBJECT_MAX = 120;
+    const MESSAGE_MAX = 2000;
+
+    if (subject.length > SUBJECT_MAX) {
+      return NextResponse.json(
+        { success: false, message: `El asunto no debe exceder ${SUBJECT_MAX} caracteres` },
+        { status: 400 }
+      );
+    }
+
+    if (message.length > MESSAGE_MAX) {
+      return NextResponse.json(
+        { success: false, message: `El mensaje no debe exceder ${MESSAGE_MAX} caracteres` },
+        { status: 400 }
+      );
+    }
+
     // Enviar email
     await sendEmail(to, subject, message);
 
