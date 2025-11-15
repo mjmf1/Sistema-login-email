@@ -61,9 +61,21 @@ export default function DashboardPage() {
   };
 
   const handleLogout = async () => {
-    // Eliminar la cookie mediante redirección al endpoint logout (si lo tienes)
-    // O simplemente redirigir (el middleware se encargará)
-    router.push('/login');
+    try {
+      const response = await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        // Limpiar estado y redirigir
+        router.push('/login');
+      }
+    } catch (err) {
+      console.error('Error al cerrar sesión:', err);
+      // Si hay error, igual redirigir
+      router.push('/login');
+    }
   };
 
   return (

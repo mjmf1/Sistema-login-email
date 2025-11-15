@@ -46,22 +46,22 @@ export default function LoginPage() {
 
         {error && <p className="text-red-500 mb-4">{error}</p>}
 
-        <label className="block mb-2">Email</label>
+        <label className="block mb-2 text-gray-700 font-semibold">Email</label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 font-medium"
           placeholder="tu@email.com"
           required
         />
 
-        <label className="block mb-2">Contraseña</label>
+        <label className="block mb-2 text-gray-700 font-semibold">Contraseña</label>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-400 font-medium"
           placeholder="••••••••"
           required
         />
