@@ -24,15 +24,18 @@ export default function LoginPage() {
 
       const data = await response.json();
 
-      if (data.token) {  // aquí cambiamos a token según tu API
+      if (data.token) {
+        // Login exitoso - redirigir a dashboard
         router.push('/dashboard');
+        // No resetear loading aquí para que no parpadee durante redirección
       } else {
-        setError(data.error || 'Error al iniciar sesión');
+        // Login fallido - mostrar error y resetear loading
+        setError(data.message || 'Error al iniciar sesión');
+        setLoading(false);
       }
     } catch (error) {
       console.error('Error en /api/auth/login (fetch):', error);
       setError('Error de conexión');
-    } finally {
       setLoading(false);
     }
   };
